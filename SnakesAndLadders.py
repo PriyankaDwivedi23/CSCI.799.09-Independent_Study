@@ -6,7 +6,6 @@ class SnakeLadders:
     def addSnakedLadder(self, source, destination):
         self.snakeLadderPositions[source] = destination
 
-  
 
     def quickestWayUp(self):
         '''
