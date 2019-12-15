@@ -9,7 +9,6 @@ class BearAndSpecies:
         self.visited = []
         for _ in range(self.n):
             self.visited.append([False] * self.n)
-
         self.directions = [(0,1), (0,-1), (1,0),(-1,0)]
         self.numComponents = [1]
 
@@ -47,9 +46,9 @@ class BearAndSpecies:
                         #if empty and curremnt value is '?' we can fill the land by either {B,G,P}
                         self.numComponents.append(3 if self.grid[i][j] == '?' else 1)
                     else:
-                        v = set()
+                        v = {self.grid[i][j]}
                         if self.grid[i][j] == '?':
-                            v.add('?')
+                            v = set()
                         #if current cell is ? then get connected components 
                         result  = self.dfs(i,j,v)
                         self.numComponents.append(0 if 'G' in result or len(result) == 2 else (2, 1)[len(result) > 0])
